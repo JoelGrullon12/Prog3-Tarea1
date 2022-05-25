@@ -1,0 +1,65 @@
+﻿@model Application.ViewModel.Zodiac.ZodiacViewModel;
+@{
+    ViewData["Title"] = "Signo del Zodiaco";
+    int diaOld = !(ViewData["Dia"] == null) ? (int)ViewData["Dia"] : 0;
+    bool IsSent = !(ViewData["Zodiac"] == null);
+}
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="card text-center">
+          <div class="card-header bg-success text-white">
+            <h5>Determinar signo del zodiaco</h5>
+          </div>
+          <div class="card-body">
+            <form method="post" asp-controller="Zodiac" asp-action="Index">
+              <div class="mb-3">
+                <label for="mes" class="form-label">Mes</label>
+                <select asp-for="Mes" class="form-select" id="mes" onchange="changeDays()">
+                  <option value="1">Enero</option>
+                  <option value="2">Febrero</option>
+                  <option value="3">Marzo</option>
+                  <option value="4">Abril</option>
+                  <option value="5">Mayo</option>
+                  <option value="6">Junio</option>
+                  <option value="7">Julio</option>
+                  <option value="8">Agosto</option>
+                  <option value="9">Septiembre</option>
+                  <option value="10">Octubre</option>
+                  <option value="11">Noviembre</option>
+                  <option value="12">Diciembre</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="dia" class="form-label">Dia</label>
+                <select asp-for="Dia" class="form-select" id="dia">
+                    @for(int i=1; i<=31; i++)
+                    {
+                        @if (diaOld == i)
+                        {
+                            <option value="@i" selected>@i</option>
+                        }else{
+                            <option value="@i">@i</option>
+                        }
+                    }
+                </select>
+              </div>
+              <div class="mb-3">
+              <button type="submit" class="btn btn-primary">Determinar</button>
+              </div>
+            </form>
+                
+         </div>
+         @if (IsSent)
+        {
+            <div class="card-footer text-muted">
+                <b>Tu signo es: @ViewData["Zodiac"]</b>
+            </div>
+        }
+          
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript" src="~/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="~/js/Zodiac.js"></script>

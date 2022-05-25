@@ -1,0 +1,60 @@
+﻿@model Application.ViewModel.Loan.LoanViewModel;
+@{
+    ViewData["Title"] = "Calculadora de Prestamos";
+    bool IsSent=!(ViewData["Pagos"]==null);
+}
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h5>Solicitar Prestamo</h5>
+            </div>
+            <div class="card-body">
+                <form method="post" asp-controller="Loan" asp-action="Index">
+                    <div class="mb-3">
+                        <label for="monto" class="form-label">Monto:</label>
+                        <input asp-for="Monto" type="number" step="any" class="form-control" id="monto">
+                    </div>
+                    <div class="mb-3">
+                        <label for="tipoprestamo" class="form-label">Tipo de Prestamo:</label>
+                        <select class="form-select" id="tipoprestamo" onchange="changeInteres()" asp-for="Interes">
+                            <option value="1">Personal</option>
+                            <option value="2">Automovil</option>
+                            <option value="3">Hipotecario</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="interes" class="form-label">Tasa de Interes:</label>
+                        <select asp-for="Interes" class="form-select" id="interes" disabled>
+                            <option value="1">22%</option>
+                            <option value="2">12%</option>
+                            <option value="3">8%</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="meses" class="form-label">Tiempo para pagar:</label>
+                        <select asp-for="Cuotas" class="form-select" id="meses">
+                            @for(int i=12; i<=120; i+=6){
+                            <option value="@i">@i Meses</option>
+                        }  
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary center" onclick="showAll()">Calcular Cuotas</button>
+                </form>
+            </div>
+            
+                @if(IsSent){
+                    <div class="card-footer text-muted">
+                    Cuota Mensual: @ViewData["Pagos"]
+                    </div>
+                }
+            
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="~/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="~/js/Loan.js"></script>
+
+@*pattern="^\d*(\.\d{0,2})?$"*@

@@ -1,0 +1,51 @@
+﻿@model Application.ViewModel.Currency.CurrencyViewModel;
+@{
+    bool IsSent = !(ViewData["Convertion"] == null);
+    ViewData["Title"] = "Cambio de Moneda";
+}
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <h5>Cambiar Monedas</h5>
+          </div>
+          <div class="card-body">
+            <form method="post" asp-controller="Currency" asp-action="Index">
+              <div class="mb-3">
+                <label for="demoneda" class="form-label">De:</label>
+                <select asp-for="De" class="form-select" id="demoneda" onchange="changeFrom()" onclick="fromOld=$('#demoneda').val();">
+                  <option value="1">Peso</option>
+                  <option value="2">Dolar</option>
+                  <option value="3">Euro</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="amoneda" class="form-label">A:</label>
+                <select asp-for="A" class="form-select" id="amoneda" onchange="changeTo()" onclick="toOld=$('#amoneda').val();">
+                  <option value="1">Peso</option>
+                  <option value="2">Dolar</option>
+                  <option value="3">Euro</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="cantidad" class="form-label">Cantidad:</label>
+                <input asp-for="Cantidad" type="number" step="any" class="form-control" id="cantidad">
+              </div>
+              <button type="submit" class="btn btn-primary center">Convertir</button>
+            </form>
+          </div>
+            @if (IsSent)
+            {
+                <div class="card-footer text-muted">
+                    @Model.Cantidad @ViewData["From"] son @ViewData["Convertion"] @ViewData["To"]
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="~/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="~/js/Currencies.js"></script>
+
+@*pattern="^\d*(\,\d{0,2})?$"*@

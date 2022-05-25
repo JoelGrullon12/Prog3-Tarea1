@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewData["Title"] = "Inicio";
+}
+    <link rel="stylesheet" href="~/css/home.css" />
+
+<div>
+    <div class="row col-md-8 offset-2 bg-warning text-white home-title">
+    <center><h3>Tarea 1 - Controladores y Vistas</h3></center>
+    </div>
+    <div class="row col-md-8 offset-2 padding-20">
+        <h5>Esta tarea tiene un valor de 5 puntos, los primeros 2 ejercicios tiene valor de un
+punto, el último un valor de 3 ptos:
+</h5>
+    </div>
+    <div class="row col-md-8 offset-2 content-element">
+        <p>
+            1. <a asp-controller="Zodiac" asp-action="Index">Signo del Zodiaco:</a> Realizar una aplicación web utilizando .net core mvc, que solicite a través de un
+            formulario al usuario su día y mes de nacimiento y que según esa información
+            determine su signo zodiacal. <b>(1 pto)</b>
+
+        </p>
+    </div>
+
+    <div class="row col-md-8 offset-2 content-element">
+        <p>
+            2. <a asp-controller="Currency" asp-action="Index">Conversor de Monedas:</a> Realizar una aplicación web utilizando .net core mvc, me permita realizar las
+            siguientes conversiones de moneda de peso a dólar y viceversa , de peso a euro y
+            viceversa y de euro a dólar y viceversa, el formulario debe poder permitir de que
+            moneda a cual moneda quiero convertir y la cantidad que quiere convertir, ejemplo:<br />
+
+            De: peso<br />
+            A: Dólar<br />
+            Cantidad: 55<br />
+            Resultado: 1 Dólar<br /> <b>(1 pto)</b>
+
+        </p>
+    </div>
+
+    <div class="row col-md-8 offset-2 content-element">
+        <p>
+            1. <a asp-controller="Loan" asp-action="Index">Calculadora de Prestamos:</a>  Esta aplicación tiene como objetivo calcular el monto de la cuota que pagaría
+            mensual un usuario según el tipo de préstamos que elija.<br /><br />
+
+            Esta aplicación debe tener un campo de texto(input text) para colocar el monto del
+            préstamo que deseas luego un select para elegir el tipo de préstamos que
+            tendremos tres opciones: Personal, Automóvil e Hipotecario.<br /><br />
+
+            Según el tipo de préstamos vamos a colocar la tasa de interés, esta se mostrará en
+            un campo de texto que no se podrá editar, si el préstamos es personal la tasa será
+            del 22 %, si es de Automóvil es del 12% y si es Hipotecario será del 8%.<br /><br />
+
+            Por otro lado el un select el usuario podrá seleccionar la cantidad de meses que
+            quiere para pagar el préstamo esto irá desde 12 meses a 120 meses haciendo una
+            variación de 6 meses, osea la primera opción de este select seria 12, luego seguiría
+            18 meses, luego 24 meses y así hasta llega hasta 120 meses.<br /><br />
+
+            Finalmente para calcular la cuota mensual el usuario debe presionar un botón de
+            calcular, si está todo correcto pues se toma el monto del préstamo y se le agrega el
+            porcentaje especificado en la tasa de interés, ejemplo si es un prestamos personal
+            que la tasa de interés es a un 22% y la persona solicita 10,000 pesos, lo primero es
+            obtener el 22% de 10,000 que es 2200, luego ese interés se le suma al monto del
+            préstamo eso sería 12200, ese seria el total a pagar por el usuario, ese total se
+            divide entre la cantidad de meses, en este caso vamos a suponer el usuario
+            selecciona a 12 meses , esto sería 12200 / 12 que es igual a 1016.67 esa seria la
+            cuota a pagar mensual por el usuario, este resultado debe mostrarse en una página
+            nueva. <b>(3 ptos)</b><br /><br />
+
+            aqui una imagen de ejemplo de como seria mas o menos la interfaz:
+
+            <img src="~/img/loan-ui.png" class="img-fluid" alt="Loan Calculator Interface">
+
+
+        </p>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿
+.home-title {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+
+.padding-20 {
+    padding: 20px;
+}
+
+.content-element{
+    background: #6E6E6E;
+    padding:10px;
+    margin-bottom:15px;
+    border-radius:5px;
+    color: white;
+}
+
+.content-element a {
+    color: white;
+}
