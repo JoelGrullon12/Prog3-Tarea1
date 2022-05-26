@@ -1,4 +1,6 @@
-﻿
+﻿body {
+    background: #FAFAFA;
+}
 .home-title {
     padding: 20px;
     border-radius: 5px;
@@ -10,7 +12,7 @@
 }
 
 .content-element{
-    background: #6E6E6E;
+    background: #B0B0B0;
     padding:10px;
     margin-bottom:15px;
     border-radius:5px;
